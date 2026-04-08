@@ -1,202 +1,497 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Fredoka:wght@500&family=Pacifico&family=Great+Vibes&family=Chewy&family=Luckiest+Guy&family=Indie+Flower&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación</title>
 
-<style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    overflow-x:hidden;
-}
+    <style>
 
-/* PORTADA */
-#sobre{
-    height:100vh;
-    background: url('https://i.pinimg.com/736x/24/4b/34/244b3468872d1a1d5c1ecad7c52c7af8.jpg') no-repeat center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    position:relative;
-}
-
-#sobre::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.5);
-}
-
-.sobre-content{
-    position:relative;
-    color:white;
-    text-align:center;
-}
-
-.sobre-img{
-    width:180px;
-    cursor:pointer;
-    transition: transform 0.4s;
-}
-
-.sobre-img:hover{
-    transform: scale(1.1) rotate(5deg);
-}
-
-/* CONTENIDO */
-#contenido{
-    display:none;
-    background:#ffc0cb;
-    min-height:100vh;
-    text-align:center;
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-.banner{
-    width:100%;
-    max-height:320px;
-    object-fit:cover;
-}
-
-.card{
-    background:white;
-    margin:20px;
-    padding:25px;
-    border-radius:25px;
-}
-
-/* BOTONES */
-.btn{
+        .card::before{
     display:block;
-    margin:15px auto;
-    padding:15px;
-    width:80%;
-    max-width:280px;
-    border-radius:30px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-}
-
-.map{ background:#ff69b4; }
-.whatsapp{ background:#25D366; }
-
-/* CORAZONES */
-.heart{
-    position:fixed;
-    bottom:-10px;
     font-size:20px;
-    animation: floatUp 5s linear infinite;
+    margin-bottom:5px;
 }
 
-@keyframes floatUp{
-    from{transform:translateY(0);}
-    to{transform:translateY(-100vh);}
+.nombre-container{
+    text-align:center;
+    margin:15px 0;
 }
 
-/* CONTADOR */
-#contador{
+/* NOMBRE ARRIBA */
+.nombre-arriba{
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color:#ff6fb5;
+    text-align:center;
+    letter-spacing:1px;
+    display:inline-block;
+
+    /* BORDE BLANCO (CLAVE PARA LEER BIEN) */
+    -webkit-text-stroke: 1px #ffffff;
+
+    /* SOMBRA SUAVE */
+    text-shadow:
+        0 3px 6px rgba(0,0,0,0.2);
+
+    /* EFECTO BURBUJA */
+    background: linear-gradient(180deg, #ffb6d9, #ff69b4);
+    /* ESTÁNDAR */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* ANIMACIÓN SUAVE (SIN ROTAR) */
+    animation: flotarSuave 3s ease-in-out infinite;
+}
+
+/* APELLIDO ABAJO */
+.nombre-abajo{
+    font-family: 'Pacifico', cursive;
+    font-size: 26px;
+    color:#ff6fb5;
+    text-align:center;
+    letter-spacing:1px;
+    display:inline-block;
+
+    /* BORDE BLANCO (CLAVE PARA LEER BIEN) */
+    -webkit-text-stroke: 1px #ffffff;
+
+    /* SOMBRA SUAVE */
+    text-shadow:
+        0 3px 6px rgba(0,0,0,0.2);
+
+    /* EFECTO BURBUJA */
+    background: linear-gradient(180deg, #ffb6d9, #ff69b4);
+    /* ESTÁNDAR */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: flotarSuave 3s ease-in-out infinite 0.5s;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes flotarSuave{
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(-4px);}
+    100%{ transform: translateY(0);}
+}
+
+/* DECORACIÓN BONITA */
+.nombre-container::before{
+    display:block;
     font-size:18px;
-    margin-top:10px;
-    color:#ff1493;
+    margin-bottom:5px;
 }
-</style>
+
+.nombre-container::after{
+    content:"✨ 🌸 ✨";
+    display:block;
+    font-size:16px;
+    margin-top:5px;
+}
+
+/* EFECTO BONITO */
+.nombre-arriba,
+.nombre-abajo{
+    text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+        /* TÍTULO */
+.titulo{
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    color: #ff69b4; /* rosado bonito */
+    text-align: center;
+    margin-bottom: 8px;
+
+    /* EFECTO BORDE */
+    text-shadow: 
+        -1px -1px 0 #fff,
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff,
+         0px  3px 6px rgba(0,0,0,0.2);
+
+    /* ANIMACIÓN SUAVE */
+    /*animation: brincar 2s infinite;*/
+}
+
+/* ANIMACIÓN */
+@keyframes brincar{
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(-5px);}
+    100%{ transform: translateY(0);}
+}
+
+/* EDAD */
+.edad{
+    font-family: 'Quicksand', sans-serif;
+    font-size:30px;
+    color:#ff69b4;
+    text-align:center;
+    margin:10px 0;
+
+    /* FONDITO BONITO */
+    background:#ffe4f0;
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:20px;
+
+    /* SOMBRA SUAVE */
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+
+    /* EFECTO TEXTO */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+    /* ANIMACIÓN */
+    animation: latido 2s infinite;
+}
+
+/* CAJA DE INFORMACIÓN */
+.info-box{
+    background:#ffe4f0;
+    padding:15px;
+    border-radius:15px;
+    margin:10px 0;
+    font-family:'Quicksand', sans-serif;
+    font-size:15px;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* MENSAJE FINAL */
+.mensaje{
+    margin-top:15px;
+    font-family:'Quicksand', sans-serif;
+    font-size:16px;
+    color:#ff69b4;
+    text-align:center;
+
+    /* FONDO SUAVE */
+    background:#fff0f7;
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:20px;
+
+    /* SOMBRA */
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    /* TEXTO */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+
+    /* ANIMACIÓN */
+    animation: flotarMensaje 3s ease-in-out infinite;
+}
+
+/* NOMBRE EN ARCO PREMIUM */
+.nombre-arco{
+    position: relative;
+    width: 100%;
+    height: 110px;
+    margin: 10px 0;
+}
+
+.nombre-arco span{
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 100px;
+    font-family: 'Pacifico', cursive;
+    font-size: 24px;
+    color: #ff8fcf;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ffb6d9;
+    animation: brillo 2s infinite alternate;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes brillo{
+    from{ text-shadow:0 0 5px #fff; }
+    to{ text-shadow:0 0 15px #ff69b4; }
+}
+
+/* POSICIÓN DE LETRAS */
+.nombre-arco span:nth-child(1){ transform: rotate(-40deg); }
+.nombre-arco span:nth-child(2){ transform: rotate(-35deg); }
+.nombre-arco span:nth-child(3){ transform: rotate(-30deg); }
+.nombre-arco span:nth-child(4){ transform: rotate(-25deg); }
+.nombre-arco span:nth-child(5){ transform: rotate(-20deg); }
+.nombre-arco span:nth-child(6){ transform: rotate(-15deg); }
+.nombre-arco span:nth-child(7){ transform: rotate(-10deg); }
+.nombre-arco span:nth-child(8){ transform: rotate(-5deg); }
+.nombre-arco span:nth-child(9){ transform: rotate(0deg); }
+.nombre-arco span:nth-child(10){ transform: rotate(5deg); }
+.nombre-arco span:nth-child(11){ transform: rotate(10deg); }
+.nombre-arco span:nth-child(12){ transform: rotate(15deg); }
+.nombre-arco span:nth-child(13){ transform: rotate(20deg); }
+.nombre-arco span:nth-child(14){ transform: rotate(25deg); }
+.nombre-arco span:nth-child(15){ transform: rotate(30deg); }
+.nombre-arco span:nth-child(16){ transform: rotate(35deg); }
+.nombre-arco span:nth-child(17){ transform: rotate(40deg); }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* PORTADA */
+        #sobre {
+            height: 100vh;
+            background: url('https://i.pinimg.com/736x/24/4b/34/244b3468872d1a1d5c1ecad7c52c7af8.jpg') no-repeat center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+            #sobre::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+            }
+
+       .sobre-content {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+
+    /* FONDO SEMITRANSPARENTE */
+    background: rgba(255, 105, 180, 0.25);
+
+    /* EFECTO GLASS */
+    backdrop-filter: blur(8px);
+
+    /* BORDES BONITOS */
+    border-radius: 25px;
+
+    /* SOMBRA */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+    /* ANCHO RESPONSIVO */
+    width: 85%;
+    max-width: 320px;
+    margin: auto;
+}
+
+.sobre-content h2{
+    font-family: 'Pacifico', cursive;
+    font-size: 26px;
+    color: #fff;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.8),
+        0 2px 6px rgba(0,0,0,0.4);
+}
+
+.sobre-content p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+        .sobre-img {
+            width: 180px;
+            cursor: pointer;
+            transition: transform 0.4s;
+        }
+
+            .sobre-img:hover {
+                transform: scale(1.1) rotate(5deg);
+            }
+
+        /* CONTENIDO */
+        #contenido {
+            display: none;
+            background: #ffc0cb;
+            min-height: 100vh;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+        }
+
+        .card {
+            background: white;
+            margin: 20px;
+            padding: 25px;
+            border-radius: 25px;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 15px;
+            width: 80%;
+            max-width: 280px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .map {
+            background: #ff69b4;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        /* CORAZONES */
+        .heart {
+            position: fixed;
+            bottom: -10px;
+            font-size: 20px;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-100vh);
+            }
+        }
+
+        /* CONTADOR */
+        #contador {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #ff1493;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- MÚSICA -->
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
-</audio>
+    <!-- MÚSICA -->
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- PORTADA -->
-<div id="sobre">
-    <div class="sobre-content">
-        <h2>🎀 Tienes una invitación 🎀</h2>
+    <!-- PORTADA -->
+    <div id="sobre">
+        <div class="sobre-content">
+            <h2>🎀 Tienes una invitación 🎀</h2>
 
-        <img class="sobre-img"
-        src="party-card.png"
-        onclick="abrirInvitacion()">
+            <img class="sobre-img"
+                 src="party-card.png"
+                 onclick="abrirInvitacion()">
 
-        <p>Haz clic para abrir</p>
+            <p>Haz clic para abrir</p>
+        </div>
     </div>
-</div>
 
-<!-- CONTENIDO -->
-<div id="contenido">
+    <!-- CONTENIDO -->
+    <div id="contenido">
 
-    <img class="banner"
-    src="https://is2-ssl.mzstatic.com/image/thumb/jJVdH3VjzB5aALKvtgaHzg/1200x675mf.jpg">
+        <img class="banner"
+             src="https://is2-ssl.mzstatic.com/image/thumb/jJVdH3VjzB5aALKvtgaHzg/1200x675mf.jpg">
 
-    <div class="card">
+        <div class="card">
 
-        <h1>🎉 Cumpleaños 🎉</h1>
-        <h2> ALICIA VILLADIEGO</h2>
-        <p>🎂 3 añitos</p>
+    <h1 class="titulo">🎉 Tarde di picni con mini y daisy para celebrar el cumpleaños de mis 3 añitos 🎉</h1>
 
-        <p>📅 Fecha: 10 DE ABRIL</p>
-        <p>⏰ Hora: 4 : 00 PM</p>
-        <p>📍 Lugar: KRA 8 # 7 - 24</p>
 
-        <div id="contador"></div>
+    <div class="nombre-container">
 
-        <a class="btn map" href="https://maps.app.goo.gl/CHtztPQkjsMuwe6WA" target="_blank">
-            📍 Ver ubicación
-        </a>
-
-        <a class="btn whatsapp" href="https://wa.me/573006142170?text=Hola%20confirmo%20mi%20asistencia%20al%20cumpleaños" target="_blank">
-            📲 Confirmar asistencia
-        </a>
-
-        <p>✨ ¡Te esperamos con Minnie y Daisy! ✨</p>
+        <div class="nombre-arriba">
+            ✨ ALICIA ✨
+        </div>
+        <br>
+        <div class="nombre-abajo">
+            WILLIAMS VILLADIEGO
+        </div>
 
     </div>
 
+
+    <!-- <p class="edad">🎂 3 añitos</p> -->
+
+    <!-- DATOS BONITOS -->
+    <div class="info-box">
+        <p>📅 <strong>Fecha:</strong> 11 DE ABRIL</p>
+        <p>⏰ <strong>Hora:</strong> 4 : 00 PM</p>
+        <p>📍 <strong>Lugar:</strong> Cra. 8a # 22-58</p>
+    </div>
+
+    <div id="contador"></div>
+
+    <a class="btn map" href="https://maps.app.goo.gl/XeLC7dd2eV4HxyPj9" target="_blank">
+        📍 Ver ubicación
+    </a>
+
+    <a class="btn whatsapp" href="https://wa.me/573007599684?text=Hola%20confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Alicia" target="_blank">
+        📲 Confirmar asistencia
+    </a>
+
+    <p class="mensaje">✨ ¡Te esperamos con Minnie y Daisy! ✨</p>
+
 </div>
+    </div>
 
-<script>
-function abrirInvitacion(){
-    document.getElementById("sobre").style.display="none";
-    document.getElementById("contenido").style.display="block";
-}
+    <script>
+        function abrirInvitacion() {
+            document.getElementById("sobre").style.display = "none";
+            document.getElementById("contenido").style.display = "block";
+             let audio = document.getElementById("musica");
+            audio.currentTime = 0;
+            audio.play().catch(e => console.log("Error audio:", e));
+        }
 
-/* CORAZONES */
-setInterval(()=>{
-    let heart = document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"%";
-    heart.style.fontSize=(15+Math.random()*20)+"px";
-    document.body.appendChild(heart);
+        /* CORAZONES */
+        setInterval(() => {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.fontSize = (15 + Math.random() * 20) + "px";
+            document.body.appendChild(heart);
 
-    setTimeout(()=>{heart.remove();},5000);
-},500);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }, 500);
 
-/* CONTADOR */
-let fechaEvento = new Date("2026-04-10").getTime();
+        /* CONTADOR */
+        let fechaEvento = new Date("2026-04-10").getTime();
 
-setInterval(()=>{
-    let ahora = new Date().getTime();
-    let diferencia = fechaEvento - ahora;
+        setInterval(() => {
+            let ahora = new Date().getTime();
+            let diferencia = fechaEvento - ahora;
 
-    let dias = Math.floor(diferencia/(1000*60*60*24));
-    let horas = Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
-    let minutos = Math.floor((diferencia%(1000*60*60))/(1000*60));
+            let dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            let horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
 
-    document.getElementById("contador").innerHTML =
-    "⏳ Faltan: "+dias+" días "+horas+" horas "+minutos+" min";
-},1000);
-</script>
+            document.getElementById("contador").innerHTML =
+                "⏳ Faltan: " + dias + " días " + horas + " horas " + minutos + " min";
+        }, 1000);
+    </script>
 
 </body>
 </html>
