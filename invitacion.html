@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+/* PORTADA */
+#sobre{
+    height:100vh;
+    background: url('https://i.pinimg.com/736x/24/4b/34/244b3468872d1a1d5c1ecad7c52c7af8.jpg') no-repeat center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    position:relative;
+}
+
+#sobre::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.sobre-content{
+    position:relative;
+    color:white;
+    text-align:center;
+}
+
+.sobre-img{
+    width:180px;
+    cursor:pointer;
+    transition: transform 0.4s;
+}
+
+.sobre-img:hover{
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* CONTENIDO */
+#contenido{
+    display:none;
+    background:#ffc0cb;
+    min-height:100vh;
+    text-align:center;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.banner{
+    width:100%;
+    max-height:320px;
+    object-fit:cover;
+}
+
+.card{
+    background:white;
+    margin:20px;
+    padding:25px;
+    border-radius:25px;
+}
+
+/* BOTONES */
+.btn{
+    display:block;
+    margin:15px auto;
+    padding:15px;
+    width:80%;
+    max-width:280px;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+.map{ background:#ff69b4; }
+.whatsapp{ background:#25D366; }
+
+/* CORAZONES */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp{
+    from{transform:translateY(0);}
+    to{transform:translateY(-100vh);}
+}
+
+/* CONTADOR */
+#contador{
+    font-size:18px;
+    margin-top:10px;
+    color:#ff1493;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MÚSICA -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PORTADA -->
+<div id="sobre">
+    <div class="sobre-content">
+        <h2>🎀 Tienes una invitación 🎀</h2>
+
+        <img class="sobre-img"
+        src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+        onclick="abrirInvitacion()">
+
+        <p>Haz clic para abrir</p>
+    </div>
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido">
+
+    <img class="banner"
+    src="https://is2-ssl.mzstatic.com/image/thumb/jJVdH3VjzB5aALKvtgaHzg/1200x675mf.jpg">
+
+    <div class="card">
+
+        <h1>🎉 Cumpleaños 🎉</h1>
+        <h2>[NOMBRE DE LA NIÑA]</h2>
+        <p>🎂 3 añitos</p>
+
+        <p>📅 Fecha: [Día / Mes]</p>
+        <p>⏰ Hora: [Hora]</p>
+        <p>📍 Lugar: [Dirección]</p>
+
+        <div id="contador"></div>
+
+        <a class="btn map" href="LINK_MAPA" target="_blank">
+            📍 Ver ubicación
+        </a>
+
+        <a class="btn whatsapp" href="https://wa.me/57NUMERO?text=Hola%20confirmo%20mi%20asistencia%20al%20cumpleaños" target="_blank">
+            📲 Confirmar asistencia
+        </a>
+
+        <p>✨ ¡Te esperamos con Minnie y Daisy! ✨</p>
+
+    </div>
+
+</div>
+
+<script>
+function abrirInvitacion(){
+    document.getElementById("sobre").style.display="none";
+    document.getElementById("contenido").style.display="block";
+}
+
+/* CORAZONES */
+setInterval(()=>{
+    let heart = document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"%";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},5000);
+},500);
+
+/* CONTADOR */
+let fechaEvento = new Date("[FECHA_EVENTO]").getTime();
+
+setInterval(()=>{
+    let ahora = new Date().getTime();
+    let diferencia = fechaEvento - ahora;
+
+    let dias = Math.floor(diferencia/(1000*60*60*24));
+    let horas = Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+    let minutos = Math.floor((diferencia%(1000*60*60))/(1000*60));
+
+    document.getElementById("contador").innerHTML =
+    "⏳ Faltan: "+dias+" días "+horas+" horas "+minutos+" min";
+},1000);
+</script>
+
+</body>
+</html>
